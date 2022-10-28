@@ -1,17 +1,16 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
-
-export function middleware(request: NextRequest) {   
-  const url = request.nextUrl.clone()   
-  if (url.pathname === '/') {
-    url.pathname = 'https://wikipediastar.com'
-    return NextResponse.redirect(url)   
-  } 
+import {useEffect} from 'react'
+export default function redirect() {
+    useEffect(() => {
+        window.location.assign('https://wikipediastar.com/')
+    })
+    return(
+        <>
+        </>
+    )
 }
-
 export default function Home() {
   return (
     <div className={styles.container}>
